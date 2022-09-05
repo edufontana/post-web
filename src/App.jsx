@@ -1,8 +1,18 @@
+import './global.css';
+import {Post} from './Post'
+import { Header } from './components/Header';
+
 
 function App() {
 
   return (
-   <h1>hello</h1>
+    <>
+
+      <Header/>
+      <Post author={'edu'} title={'dasdsad'}/>
+      <Post author={'edu'} title={'dasdsad'}/>
+
+    </>
   )
 }
 
