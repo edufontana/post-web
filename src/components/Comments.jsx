@@ -5,7 +5,7 @@ export function Comments(){
 
   return(
     <div className={styles.comments}>
-      <img src="https://github.com/edufontana.png"/>
+      <img className={styles.avatar} src="https://github.com/edufontana.png"/>
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
@@ -17,12 +17,12 @@ export function Comments(){
 
 
             <button title='deletar comentário'>
-              <Trash size={20}/>
+              <Trash size={24}/>
             </button>
           </header> 
           <p>Muito bom</p>
         </div>
-      </div>
+    
 
       <footer>
         <button>
@@ -30,6 +30,7 @@ export function Comments(){
           Aplaudir <span>20</span>
         </button>
       </footer>
+      </div>
     </div>
   );
 }
