@@ -10,4 +10,13 @@
 }
 
 
+@media (max-width: 780px){
 
+  html{
+    font-size: 87.5%;
+  }
+
+  .wrapper{
+    grid-template-columns: 1fr;
+  }
+}
