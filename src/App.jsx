@@ -5,6 +5,38 @@ import styles from './App.module.css'
 import { SideBar } from './components/SideBar';
 
 
+
+const post = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/edufontana.png',
+      name: 'Eduardo',
+      role: 'Web Developer',
+    },
+    content:[
+      {type: 'paragraph', content: 'Fala galeraa 👋'},
+      {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+      {type: 'link', content: 'jane.design/doctorcare'},
+    ],
+    puplishedAt: new Date('2022-07-03 20:00:00')
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/edufontana.png',
+      name: 'Diego',
+      role: 'Web Developer',
+    },
+    content:[
+      {type: 'paragraph', content: 'Fala galeraa 👋'},
+      {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+      {type: 'link', content: 'jane.design/doctorcare'},
+    ],
+    puplishedAt: new Date('2022-07-03 20:00:00')
+  },
+]
+
 function App() {
 
   return (
@@ -15,8 +47,13 @@ function App() {
 
         <SideBar />
         <main>
-          <Post author={'edu'} title={'dsadsad'}/>
-          <Post author={'edu'} title={'dsadsad'}/>
+          {post.map(post=>(
+            <Post
+              author={post.author}
+              content={post.content}
+              puplishedAt={post.puplishedAt}
+            />
+          ))}
         </main>
 
       </div>
