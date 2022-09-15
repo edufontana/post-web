@@ -49,6 +49,7 @@ function App() {
         <main>
           {post.map(post=>(
             <Post
+              key={post.id}
               author={post.author}
               content={post.content}
               puplishedAt={post.puplishedAt}

@@ -6,7 +6,7 @@ import { Avatar } from './Avatar'
 import { Comments } from './Comments'
 import style from './Post.module.css'
 
-export function Post({author, puplishedAt}){
+export function Post({author, puplishedAt, content}){
   const [comments, setComments] = useState([
     'Post muito bom!'
   ])
@@ -33,6 +33,11 @@ export function Post({author, puplishedAt}){
 
   }
 
+  function deleteComment(comments){
+    console.log(`${comments}`)
+
+  }
+
   return(
     <article className={style.post}>
       <header>
@@ -44,23 +49,20 @@ export function Post({author, puplishedAt}){
           </div>
         </div>
 
-        <time title={publishedDateFormatted} dateTime="2022-09-07">
+        <time title={publishedDateFormatted} dateTime={puplishedAt.toISOString()}>
           {publishedDateRelativeToNow}
         </time>
       </header>
 
       <div className={style.content}>
-        <p>Fala galeraa 👋</p>
+        {content.map(line =>{
+          if(line.type === 'paragraph'){
+            return <p keu={line.content}>{line.content}</p>;
+          } else if (line.type === 'link'){
+            return <p key={line.content}><a href='#'>{line.content}</a></p>
 
-        <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
-
-        <p><a href='#'>jane.design/doctorcare</a></p>
-
-        <p>
-          <a href='#'>#novoprojeto</a>{' '}
-          <a href='#'>#nlw</a>{' '}
-          <a href='#'>#rocketseat</a>{' '}
-        </p>
+          }
+        })}
       </div>
 
       <form onSubmit={handleCreateNewComment} className={style.contentForm}>
@@ -80,10 +82,13 @@ export function Post({author, puplishedAt}){
 
       <div className={style.commentList}>
         {comments.map(comments=>
-          <Comments content={comments}/>
+          <Comments key={comments} content={comments} deleteComment={deleteComment}/>
         )}
       </div>
 
     </article>
   )
+
 }
+
+
